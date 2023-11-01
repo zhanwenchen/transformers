@@ -2753,6 +2753,7 @@ class Trainer:
             or ShardedDDPOption.ZERO_DP_3 in self.args.sharded_ddp
             or self.fsdp is not None
         ):
+            os.makedirs(output_dir, exist_ok=True)
             state_dict = self.model.state_dict()
 
             if self.args.should_save:
